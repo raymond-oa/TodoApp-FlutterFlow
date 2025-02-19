@@ -54,7 +54,7 @@ class _TaskTextWidgetState extends State<TaskTextWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -66,13 +66,13 @@ class _TaskTextWidgetState extends State<TaskTextWidget> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(12.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
               Theme(
                 data: ThemeData(
-                  checkboxTheme: const CheckboxThemeData(
+                  checkboxTheme: CheckboxThemeData(
                     visualDensity: VisualDensity.compact,
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     shape: CircleBorder(),

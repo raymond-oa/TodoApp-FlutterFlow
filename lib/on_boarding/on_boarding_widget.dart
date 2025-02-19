@@ -54,7 +54,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: EdgeInsets.all(24.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -140,10 +140,10 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                           ));
                         },
                         child: Stack(
-                          alignment: const AlignmentDirectional(-1.0, 1.0),
+                          alignment: AlignmentDirectional(-1.0, 1.0),
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 8.0),
                               child: Container(
                                 width: 68.0,
@@ -185,14 +185,14 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      Container(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.textController,
                           focusNode: _model.textFieldFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController',
-                            const Duration(milliseconds: 2000),
+                            Duration(milliseconds: 2000),
                             () => safeSetState(() {}),
                           ),
                           autofocus: false,
@@ -220,7 +220,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1.0,
                               ),
@@ -243,7 +243,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 26.0, 24.0, 26.0),
                             suffixIcon: _model.textController!.text.isNotEmpty
                                 ? InkWell(
@@ -251,7 +251,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                                       _model.textController?.clear();
                                       safeSetState(() {});
                                     },
-                                    child: const Icon(
+                                    child: Icon(
                                       Icons.clear,
                                       size: 24.0,
                                     ),
@@ -271,7 +271,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          final datePicked1Date = await showDatePicker(
+                          final _datePicked1Date = await showDatePicker(
                             context: context,
                             initialDate: getCurrentTimestamp,
                             firstDate: DateTime(1900),
@@ -308,27 +308,31 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                             },
                           );
 
-                          if (datePicked1Date != null) {
+                          if (_datePicked1Date != null) {
                             safeSetState(() {
                               _model.datePicked1 = DateTime(
-                                datePicked1Date.year,
-                                datePicked1Date.month,
-                                datePicked1Date.day,
+                                _datePicked1Date.year,
+                                _datePicked1Date.month,
+                                _datePicked1Date.day,
                               );
+                            });
+                          } else if (_model.datePicked1 != null) {
+                            safeSetState(() {
+                              _model.datePicked1 = getCurrentTimestamp;
                             });
                           }
                         },
                         text: 'Set birthday...',
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.calendar_today,
                           size: 15.0,
                         ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 70.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           textStyle: FlutterFlowTheme.of(context)
@@ -348,7 +352,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          final datePicked2Date = await showDatePicker(
+                          final _datePicked2Date = await showDatePicker(
                             context: context,
                             initialDate: getCurrentTimestamp,
                             firstDate: DateTime(1900),
@@ -385,27 +389,31 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                             },
                           );
 
-                          if (datePicked2Date != null) {
+                          if (_datePicked2Date != null) {
                             safeSetState(() {
                               _model.datePicked2 = DateTime(
-                                datePicked2Date.year,
-                                datePicked2Date.month,
-                                datePicked2Date.day,
+                                _datePicked2Date.year,
+                                _datePicked2Date.month,
+                                _datePicked2Date.day,
                               );
+                            });
+                          } else if (_model.datePicked2 != null) {
+                            safeSetState(() {
+                              _model.datePicked2 = getCurrentTimestamp;
                             });
                           }
                         },
                         text: 'Favorite Sports Team.....',
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.sports_volleyball,
                           size: 30.0,
                         ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 70.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           textStyle: FlutterFlowTheme.of(context)
@@ -423,7 +431,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                           borderRadius: BorderRadius.circular(24.0),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 24.0)),
+                    ].divide(SizedBox(height: 24.0)),
                   ),
                 ),
                 FFButtonWidget(
@@ -439,9 +447,9 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                     width: double.infinity,
                     height: 70.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
