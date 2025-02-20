@@ -1,0 +1,24 @@
+schemas/user_schema.json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "User",
+  "description": "Schema for user documents in Firestore",
+  "type": "object",
+  "properties": {
+    "created_time": {
+      "description": "The time when the user was created",
+      "type": "string",
+      "format": "date-time"
+    },
+    "email": {
+      "description": "The email address of the user",
+      "type": "string",
+      "format": "email"
+    },
+    "uid": {
+      "description": "The unique identifier of the user",
+      "type": "string"
+    }
+  },
+  "required": ["created_time", "email", "uid"]
+}
