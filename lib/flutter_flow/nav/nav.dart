@@ -6,10 +6,11 @@ import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -86,24 +87,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
-          name: 'login',
-          path: '/login',
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: 'tasks',
-          path: '/tasks',
+          name: TasksWidget.routeName,
+          path: TasksWidget.routePath,
           builder: (context, params) =>
               params.isEmpty ? NavBarPage(initialPage: 'tasks') : TasksWidget(),
         ),
         FFRoute(
-          name: 'onBoarding',
-          path: '/onBoarding',
+          name: OnBoardingWidget.routeName,
+          path: OnBoardingWidget.routePath,
           builder: (context, params) => OnBoardingWidget(),
         ),
         FFRoute(
-          name: 'details',
-          path: '/details',
+          name: DetailsWidget.routeName,
+          path: DetailsWidget.routePath,
           asyncParams: {
             'taskDoc': getDoc(['tasks'], TasksRecord.fromSnapshot),
           },
@@ -115,8 +116,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'completed',
-          path: '/completed',
+          name: CompletedWidget.routeName,
+          path: CompletedWidget.routePath,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'completed')
               : CompletedWidget(),

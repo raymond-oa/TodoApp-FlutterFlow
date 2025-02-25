@@ -4,12 +4,16 @@ import '/components/add_task_widget.dart';
 import '/components/task_text_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'completed_model.dart';
 export 'completed_model.dart';
 
 class CompletedWidget extends StatefulWidget {
   const CompletedWidget({super.key});
+
+  static String routeName = 'completed';
+  static String routePath = '/completed';
 
   @override
   State<CompletedWidget> createState() => _CompletedWidgetState();
@@ -176,7 +180,7 @@ class _CompletedWidgetState extends State<CompletedWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'details',
+                                  DetailsWidget.routeName,
                                   queryParameters: {
                                     'taskDoc': serializeParam(
                                       listViewTasksRecord,

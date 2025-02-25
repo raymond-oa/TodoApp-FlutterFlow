@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'login_model.dart';
@@ -9,6 +10,9 @@ export 'login_model.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
+
+  static String routeName = 'login';
+  static String routePath = '/login';
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -152,7 +156,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                             () => safeSetState(() {}),
                                           ),
                                           onFieldSubmitted: (_) async {
-                                            context.pushNamed('tasks');
+                                            context.pushNamed(
+                                                TasksWidget.routeName);
                                           },
                                           autofocus: false,
                                           textInputAction: TextInputAction.next,
@@ -279,7 +284,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                             }
 
                                             context.goNamedAuth(
-                                                'tasks', context.mounted);
+                                                TasksWidget.routeName,
+                                                context.mounted);
                                           },
                                           autofocus: false,
                                           textInputAction: TextInputAction.next,
@@ -733,7 +739,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                 return;
                               }
 
-                              context.goNamedAuth('tasks', context.mounted);
+                              context.goNamedAuth(
+                                  TasksWidget.routeName, context.mounted);
                             },
                             text: 'LogIn',
                             options: FFButtonOptions(
@@ -792,7 +799,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               }
 
                               context.goNamedAuth(
-                                  'onBoarding', context.mounted);
+                                  OnBoardingWidget.routeName, context.mounted);
                             },
                             text: 'Sign up',
                             options: FFButtonOptions(
