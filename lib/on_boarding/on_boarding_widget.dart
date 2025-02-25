@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'on_boarding_model.dart';
@@ -13,6 +14,9 @@ export 'on_boarding_model.dart';
 
 class OnBoardingWidget extends StatefulWidget {
   const OnBoardingWidget({super.key});
+
+  static String routeName = 'onBoarding';
+  static String routePath = '/onBoarding';
 
   @override
   State<OnBoardingWidget> createState() => _OnBoardingWidgetState();
@@ -440,7 +444,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                       birthday: _model.datePicked1,
                     ));
 
-                    context.goNamed('tasks');
+                    context.goNamed(TasksWidget.routeName);
                   },
                   text: 'Complete Profile',
                   options: FFButtonOptions(
